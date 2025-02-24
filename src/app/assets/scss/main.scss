@@ -1,26 +1,8 @@
+@forward "base/theme";
+@forward "components/box";
 
-// Set your brand colors
-$text: #4B4B4B;
-$primary: #15C5CE;
-$link: #FF8156;
-$info: #3B82F6;
-$success: #47B881;
-$warning: #FFAD0D;
-$danger: #F64C4C;
+@forward "bulma/sass/components/navbar";
+@forward "bulma/sass/base";
+@forward "bulma/sass/elements/button";
 
-// Path to Bulma's sass folder
-@use "bulma/sass" with (
-  $family-primary: '"Quicksand"',
-  $primary: $primary,
-  $link: $link,
-  $info: $info,
-  $success: $success,
-  $warning: $warning,
-  $control-border-width: 2px,
-  $input-shadow: none
-);
-  
-@font-face {
-  font-family: 'Quicksand';
-  src: url('../fonts/Quicksand/Quicksand-VariableFont_wght.woff2') format('woff2');
-}
+@forward "bulma/sass/themes";

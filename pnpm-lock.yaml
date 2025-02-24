@@ -20,6 +20,9 @@ importers:
       bulma:
         specifier: ^1.0.3
         version: 1.0.3
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       modern-normalize:
         specifier: ^3.0.1
         version: 3.0.1
@@ -1778,6 +1781,9 @@ packages:
         optional: true
       '@chromatic-com/playwright':
         optional: true
+
+  classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
 
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
@@ -4536,6 +4542,8 @@ snapshots:
       readdirp: 4.1.1
 
   chromatic@11.25.2: {}
+
+  classnames@2.5.1: {}
 
   clsx@2.1.1: {}
 

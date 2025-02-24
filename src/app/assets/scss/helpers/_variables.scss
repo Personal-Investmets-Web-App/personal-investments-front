@@ -1,67 +1,10 @@
-// Colores base (tema claro)
-$light-primary: #007bff; // Azul principal (ajusta a tu gusto)
-$light-secondary: #6c757d; // Un gris para textos secundarios, etc.
-$light-background: #ffffff; // Blanco
-$light-surface: #f8f9fa;     // Un gris muy claro para paneles, cards, etc.
-$light-text: #212529;       // Casi negro, para texto principal
-$light-text-secondary: #495057; //Gris oscuro, texto secundario
-$light-error: #dc3545;      // Rojo para errores
-$light-success: #28a745;    // Verde para éxito
-$light-warning: #ffc107;    // Amarillo/ámbar para advertencias
-$light-info: #17a2b8;       // Azul claro para información
+$text: #4B4B4B;
+$primary: #15C5CE;
+$link: #FF8156;
+$info: #3B82F6;
+$success: #47B881;
+$warning: #FFAD0D;
+$danger: #F64C4C;
 
-// Colores base (tema oscuro)
-$dark-primary: #6075ff;    // Un azul más oscuro, o ajustado para tema oscuro
-$dark-secondary: #adb5bd;  // Gris más claro para contraste
-$dark-background: #121212;  // Gris muy oscuro (casi negro)
-$dark-surface: #212529;    // Gris oscuro para superficies
-$dark-text: #f8f9fa;       // Casi blanco, para texto principal
-$dark-text-secondary: #ced4da; //Gris claro, texto secundario
-$dark-error: #e53e3e;       // Rojo (ajustado para tema oscuro)
-$dark-success: #38a169;   // Verde (ajustado)
-$dark-warning: #ed8936;   // Naranja (ajustado)
-$dark-info: #3182ce;      // Azul (ajustado)
-
-// Mapa de colores para facilitar el acceso
-$colors: (
-  "primary": (
-    "light": $light-primary,
-    "dark": $dark-primary,
-  ),
-  "secondary": (
-    "light": $light-secondary,
-    "dark": $dark-secondary,
-  ),
-  "background": (
-    "light": $light-background,
-    "dark": $dark-background,
-  ),
-  "surface": (
-    "light": $light-surface,
-    "dark": $dark-surface,
-  ),
-  "text": (
-    "light": $light-text,
-    "dark": $dark-text,
-  ),
-    "text-secondary": (
-    "light": $light-text-secondary,
-    "dark": $dark-text-secondary,
-  ),
-  "error": (
-    "light": $light-error,
-    "dark": $dark-error,
-  ),
-  "success": (
-    "light": $light-success,
-    "dark": $dark-success,
-  ),
-  "warning": (
-    "light": $light-warning,
-    "dark": $dark-warning,
-  ),
-  "info": (
-    "light": $light-info,
-    "dark": $dark-info,
-  ),
-);
+$vertical-padding: 0.5rem;
+$horizontal-padding: 0.75rem;
