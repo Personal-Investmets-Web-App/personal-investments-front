@@ -1,7 +1,8 @@
 import { type FC } from 'react';
 import './stock-chart.scss';
 import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, type TooltipProps } from 'recharts';
-import COLORS from '@/app/assets/config/colors.json'
+
+import COLORS from '@/app/assets/config/colors.json';
 
 const SERIES_COFIG = {
   stockValue: {
@@ -14,7 +15,7 @@ const SERIES_COFIG = {
     label: 'Valor de la compra',
     color: COLORS.info,
   },
-}
+};
 
 interface ChartData {
   date: string;
@@ -22,33 +23,34 @@ interface ChartData {
   purchaseValue?: number;
 }
 
-const StockChartView: FC<{ mergedData: ChartData[], hasPurchases: boolean }> = ({ mergedData, hasPurchases }) => {
-  return (
-    <ResponsiveContainer aspect={16/6} >
-      <LineChart data={mergedData}>
-        <Line 
+const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = ({
+  mergedData,
+  hasPurchases,
+}) => (
+  <ResponsiveContainer aspect={16 / 6}>
+    <LineChart data={mergedData}>
+      <Line
+        type="monotone"
+        dataKey={SERIES_COFIG.stockValue.dataKey}
+        stroke={SERIES_COFIG.stockValue.color}
+        strokeWidth={2}
+        connectNulls={true}
+      />
+      {hasPurchases && (
+        <Line
           type="monotone"
-          dataKey={SERIES_COFIG.stockValue.dataKey}
-          stroke={SERIES_COFIG.stockValue.color}
-          strokeWidth={2}
+          dataKey={SERIES_COFIG.purchaseValue.dataKey}
+          stroke="none"
+          dot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 3 }}
+          activeDot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 4 }}
           connectNulls={true}
         />
-        {hasPurchases && (
-          <Line
-            type="monotone"
-            dataKey={SERIES_COFIG.purchaseValue.dataKey}
-            stroke="none"
-            dot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 3 }}
-            activeDot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 4 }}
-            connectNulls={true}
-          />
-        )}
-        <Tooltip content={<CustomTooltip  />} />
-        <XAxis dataKey="date" hide />
-      </LineChart>
-    </ResponsiveContainer>
-  )
-}
+      )}
+      <Tooltip content={<CustomTooltip />} />
+      <XAxis dataKey="date" hide />
+    </LineChart>
+  </ResponsiveContainer>
+);
 
 const CustomTooltip: FC<TooltipProps<string, number>> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -62,7 +64,6 @@ const CustomTooltip: FC<TooltipProps<string, number>> = ({ active, payload, labe
   }
   return null;
 };
-
 
 interface Data {
   date: string;
@@ -85,13 +86,13 @@ const parseDate = (dateStr: string): Date => {
 const mergeData = (stockData: Data[], purchasesData: Data[] = []) => {
   // Crear un Set con todas las fechas de ambas series
   const datesSet = new Set<string>();
-  stockData.forEach((item) => datesSet.add(item.date));
-  purchasesData.forEach((item) => datesSet.add(item.date));
+  stockData.forEach(item => datesSet.add(item.date));
+  purchasesData.forEach(item => datesSet.add(item.date));
 
-  const merged = Array.from(datesSet).map((date) => {
+  const merged = Array.from(datesSet).map(date => {
     // Buscar en cada array el objeto correspondiente a la fecha
-    const stockItem = stockData.find((d) => d.date === date);
-    const purchaseItem = purchasesData.find((d) => d.date === date);
+    const stockItem = stockData.find(d => d.date === date);
+    const purchaseItem = purchasesData.find(d => d.date === date);
     return {
       date,
       [SERIES_COFIG.stockValue.dataKey]: stockItem ? stockItem.value : undefined,
@@ -105,10 +106,9 @@ const mergeData = (stockData: Data[], purchasesData: Data[] = []) => {
 };
 
 const StockChart: FC<LineChartProps> = ({ stockBehaviorData, purchasesData }) => {
-
   const mergedData = mergeData(stockBehaviorData, purchasesData);
 
-  return <StockChartView mergedData={mergedData} hasPurchases={!!purchasesData} />
+  return <StockChartView mergedData={mergedData} hasPurchases={!!purchasesData} />;
 };
 
 export default StockChart;
