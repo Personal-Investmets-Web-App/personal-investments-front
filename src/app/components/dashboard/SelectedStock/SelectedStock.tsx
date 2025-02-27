@@ -1,5 +1,6 @@
-import { FC } from "react";
-import StockChart from "@/app/components/dashboard/StockChart";
+import { FC } from 'react';
+
+import StockChart from '@/app/components/dashboard/StockChart';
 
 const dummyData = {
   stockBehaviorData: [
@@ -12,16 +13,17 @@ const dummyData = {
   purchasesData: [
     { date: '01/01/2021', value: 103 },
     { date: '02/01/2021', value: 203 },
-  ]
-}
+  ],
+};
 
-const SelectedStock: FC = () => {
-  return (
-    <>
-      <h2>Nu Holdings Ltd.</h2>
-      <StockChart stockBehaviorData={dummyData.stockBehaviorData} purchasesData={dummyData.purchasesData} />
-    </>
-  )
-}
+const SelectedStock: FC = () => (
+  <>
+    <h2>Nu Holdings Ltd.</h2>
+    <StockChart
+      stockBehaviorData={dummyData.stockBehaviorData}
+      purchasesData={dummyData.purchasesData}
+    />
+  </>
+);
 
 export default SelectedStock;

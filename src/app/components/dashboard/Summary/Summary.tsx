@@ -1,11 +1,9 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-const Summary: FC = () => {
-  return (
-    <>
-      <h2>Resumen</h2>
-    </>
-  )
-}
+const Summary: FC = () => (
+  <>
+    <h2>Resumen</h2>
+  </>
+);
 
 export default Summary;

@@ -1,7 +1,0 @@
-@use "../../assets/scss/elements/layout";
-
-.dashboard-layout {
-  @extend .layout;
-  display: flex;
-  flex-direction: column;
-}

@@ -1,5 +1,4 @@
 import { type FC } from 'react';
-import './stock-chart.scss';
 import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, type TooltipProps } from 'recharts';
 
 import COLORS from '@/app/assets/config/colors.json';
