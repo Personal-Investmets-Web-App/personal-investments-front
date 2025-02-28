@@ -14,7 +14,7 @@ function RouteComponent() {
   return (
     <Grid
       as="main"
-      p={4}
+      padding={4}
       flexGrow={1}
       gap={{ base: 2, md: 4 }}
       gridTemplateRows={{ base: '1fr 1fr 1fr', md: '1fr 1fr' }}

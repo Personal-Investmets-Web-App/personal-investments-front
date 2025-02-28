@@ -5,7 +5,7 @@ const SectionBox = React.forwardRef((props: PropsWithChildren, ref) => (
   <Box
     as="section"
     ref={ref}
-    p={{ base: 2, md: 4 }}
+    padding={{ base: 3, md: 4 }}
     border={'1px solid {colors.gray.500}'}
     borderRadius="2xl"
     height="100%"

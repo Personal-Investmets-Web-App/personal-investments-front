@@ -6,3 +6,5 @@ se instala sass
 se instala react-query
 se instala radix-ui
 se instala bulma-css
+
+bunx @chakra-ui/cli typegen ./src/app/theme.ts
