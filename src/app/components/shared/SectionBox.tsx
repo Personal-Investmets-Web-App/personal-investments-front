@@ -1,19 +1,18 @@
-import classNames from 'classnames';
-import { FC, ReactNode } from 'react';
+import { Box } from '@chakra-ui/react';
+import React, { PropsWithChildren } from 'react';
 
-interface SectionBoxProps {
-  className?: string;
-  children: ReactNode;
-}
-
-const SectionBox: FC<SectionBoxProps> = ({ children, className }) => {
-  const mergedClassName = classNames(className, 'box', 'custom-box');
-
-  return (
-    <section className={mergedClassName} style={{ height: '100%' }}>
-      {children}
-    </section>
-  );
-};
+const SectionBox = React.forwardRef((props: PropsWithChildren, ref) => (
+  <Box
+    as="section"
+    ref={ref}
+    p={{ base: 2, md: 4 }}
+    border={'1px solid {colors.gray.500}'}
+    borderRadius="2xl"
+    height="100%"
+    {...props}
+  >
+    {props.children}
+  </Box>
+));
 
 export default SectionBox;
