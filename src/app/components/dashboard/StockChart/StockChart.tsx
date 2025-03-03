@@ -1,5 +1,13 @@
 import { type FC } from 'react';
-import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, type TooltipProps } from 'recharts';
+import {
+  LineChart,
+  Line,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  type TooltipProps,
+  YAxis,
+} from 'recharts';
 
 import COLORS from '@/app/assets/config/colors.json';
 
@@ -26,7 +34,7 @@ const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = (
   mergedData,
   hasPurchases,
 }) => (
-  <ResponsiveContainer aspect={16 / 6}>
+  <ResponsiveContainer height="100%">
     <LineChart data={mergedData}>
       <Line
         type="monotone"
@@ -47,6 +55,7 @@ const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = (
       )}
       <Tooltip content={<CustomTooltip />} />
       <XAxis dataKey="date" hide />
+      <YAxis domain={['dataMin', 'dataMax']} hide />
     </LineChart>
   </ResponsiveContainer>
 );

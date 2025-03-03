@@ -167,6 +167,4 @@ const myConfig = defineConfig({
   theme: { tokens, semanticTokens, textStyles },
 });
 
-const config = mergeConfigs(defaultConfig, myConfig);
-
-export const system = createSystem(config);
+export const system = createSystem(defaultConfig, myConfig);
