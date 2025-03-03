@@ -9,7 +9,7 @@ export const Route = createFileRoute('/_dashboard')({
 
 function RouteComponent() {
   return (
-    <Flex direction="column" minHeight="100dvh">
+    <Flex direction="column" minHeight="100dvh" bg={'neutral.muted'}>
       <Navbar />
       <Outlet />
     </Flex>

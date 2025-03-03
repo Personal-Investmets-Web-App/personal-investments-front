@@ -1,3 +1,4 @@
+import { Card, Heading, Text } from '@chakra-ui/react';
 import { type FC } from 'react';
 import {
   LineChart,
@@ -9,18 +10,18 @@ import {
   YAxis,
 } from 'recharts';
 
-import COLORS from '@/app/assets/config/colors.json';
+import { system } from '@/app/theme';
 
 const SERIES_COFIG = {
   stockValue: {
     dataKey: 'stockValue',
     label: 'Valor de la acción',
-    color: COLORS.success,
+    color: system.token('colors.success'),
   },
   purchaseValue: {
     dataKey: 'purchaseValue',
     label: 'Valor de la compra',
-    color: COLORS.info,
+    color: system.token('colors.info'),
   },
 };
 
@@ -63,11 +64,15 @@ const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = (
 const CustomTooltip: FC<TooltipProps<string, number>> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
-        <p className="custom-tooltip__label">{`${label}`}</p>
-        <p className="intro">{`Valor de la acción: ${payload[0].value}`}</p>
-        {payload.length > 1 && <p className="intro">{`Valor de la compra: ${payload[1].value}`}</p>}
-      </div>
+      <Card.Root size="sm">
+        <Card.Header>
+          <Text as="span" textStyle="title">{`${label}`}</Text>
+        </Card.Header>
+        <Card.Body color="fg.muted">
+          <p>{`Valor de la acción: ${payload[0].value}`}</p>
+          {payload.length > 1 && <p>{`Valor de la compra: ${payload[1].value}`}</p>}
+        </Card.Body>
+      </Card.Root>
     );
   }
   return null;

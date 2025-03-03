@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
+import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 import { FC } from 'react';
 
 import StockChart from '@/app/components/dashboard/StockChart';
@@ -29,17 +29,17 @@ const SelectedStock: FC = () => (
     height="100%"
   >
     <GridItem asChild colSpan={2}>
-      <Flex align="start" justify="space-between">
-        <Box as="h2" textStyle="h2" fontWeight="{fontWeights.medium}">
+      <Flex align="end" justify="space-between">
+        <Text as="h2" textStyle="h2" fontWeight="{fontWeights.medium}">
           Nu Holdings Ltd.
-        </Box>
+        </Text>
         <Flex gap={1} alignItems="end">
-          <Box as="h1" textStyle="h1" fontWeight="{fontWeights.bold}">
+          <Text as="h1" textStyle="h1" fontWeight="{fontWeights.bold}">
             11,08
-          </Box>
-          <Box as="span" textStyle="caption" mb={1}>
+          </Text>
+          <Text as="span" textStyle="caption" mb={1}>
             USD
-          </Box>
+          </Text>
         </Flex>
       </Flex>
     </GridItem>

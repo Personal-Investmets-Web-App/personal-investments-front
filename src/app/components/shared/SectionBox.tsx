@@ -6,7 +6,8 @@ const SectionBox = React.forwardRef((props: PropsWithChildren, ref) => (
     as="section"
     ref={ref}
     padding={{ base: 3, md: 4 }}
-    border={'1px solid {colors.gray.500}'}
+    borderWidth={'1px'}
+    borderColor={'colors.neutral.subtle'}
     borderRadius="2xl"
     height="100%"
     {...props}
