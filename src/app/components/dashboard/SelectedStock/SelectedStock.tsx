@@ -1,7 +1,11 @@
-import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
 import { FC } from 'react';
 
 import StockChart from '@/app/components/dashboard/StockChart';
+
+import { SelectedStockHeader } from './SelectedStockHeader';
+import SelectedStockMyInvestment from './SelectedStockMyInvestment';
+import SelectedStockMyStocks from './SelectedStockMyStocks';
 
 const dummyData = {
   stockBehaviorData: [
@@ -22,26 +26,13 @@ const SelectedStock: FC = () => (
     gap={1}
     gridTemplateRows={{
       base: 'min-content 1fr min-content',
-      md: '1fr auto 3fr',
-      lg: 'min-content 1fr min-content',
+      md: 'min-content 1fr min-content',
     }}
     gridTemplateColumns="4fr 8fr"
     height="100%"
   >
     <GridItem asChild colSpan={2}>
-      <Flex align="end" justify="space-between">
-        <Text as="h2" textStyle="h2" fontWeight="{fontWeights.medium}">
-          Nu Holdings Ltd.
-        </Text>
-        <Flex gap={1} alignItems="end">
-          <Text as="h1" textStyle="h1" fontWeight="{fontWeights.bold}">
-            11,08
-          </Text>
-          <Text as="span" textStyle="caption" mb={1}>
-            USD
-          </Text>
-        </Flex>
-      </Flex>
+      <SelectedStockHeader stockName="Nu Holdings Ltd." stockValue="11,08" currency="USD" />
     </GridItem>
     <GridItem colSpan={2}>
       <StockChart
@@ -49,17 +40,11 @@ const SelectedStock: FC = () => (
         purchasesData={dummyData.purchasesData}
       />
     </GridItem>
-    <GridItem colSpan={2}>
-      <Flex direction="column" justify="space-between" align="center">
-        <Text textStyle="subtitle">Purchases</Text>
-        <Text textStyle="subtitle" color="gray.500">
-          2
-        </Text>
-        <Text textStyle="subtitle">Purchases</Text>
-        <Text textStyle="subtitle" color="gray.500">
-          2
-        </Text>
-      </Flex>
+    <GridItem asChild colSpan={1}>
+      <SelectedStockMyStocks stockQuantity="2,53037" />
+    </GridItem>
+    <GridItem asChild colSpan={1}>
+      <SelectedStockMyInvestment purchaseValue="26,11" currentValue="28,03" />
     </GridItem>
   </Grid>
 );

@@ -1,4 +1,4 @@
-import { Card, Heading, Text } from '@chakra-ui/react';
+import { Card, Text } from '@chakra-ui/react';
 import { type FC } from 'react';
 import {
   LineChart,
@@ -41,7 +41,7 @@ const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = (
         type="monotone"
         dataKey={SERIES_COFIG.stockValue.dataKey}
         stroke={SERIES_COFIG.stockValue.color}
-        strokeWidth={2}
+        strokeWidth={3}
         connectNulls={true}
       />
       {hasPurchases && (
@@ -49,7 +49,7 @@ const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = (
           type="monotone"
           dataKey={SERIES_COFIG.purchaseValue.dataKey}
           stroke="none"
-          dot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 3 }}
+          dot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 4 }}
           activeDot={{ fill: SERIES_COFIG.purchaseValue.color, strokeWidth: 0, r: 4 }}
           connectNulls={true}
         />
@@ -64,13 +64,15 @@ const StockChartView: FC<{ mergedData: ChartData[]; hasPurchases: boolean }> = (
 const CustomTooltip: FC<TooltipProps<string, number>> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <Card.Root size="sm">
+      <Card.Root size="sm" bg={'neutral.subtle'} boxShadow={'elevation.1'} borderRadius="2xl">
         <Card.Header>
-          <Text as="span" textStyle="title">{`${label}`}</Text>
+          <Text as="span" textStyle="caption">{`${label}`}</Text>
         </Card.Header>
-        <Card.Body color="fg.muted">
-          <p>{`Valor de la acción: ${payload[0].value}`}</p>
-          {payload.length > 1 && <p>{`Valor de la compra: ${payload[1].value}`}</p>}
+        <Card.Body paddingTop={1}>
+          <Text as="span" textStyle="caption">{`Valor de la acción: ${payload[0].value}`}</Text>
+          {payload.length > 1 && (
+            <Text as="span" textStyle="caption">{`Valor de la compra:: ${payload[1].value}`}</Text>
+          )}
         </Card.Body>
       </Card.Root>
     );

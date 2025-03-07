@@ -1,0 +1,56 @@
+.custom-arrow {
+  position: relative;
+  display: inline-block;
+  width: var(--arrow-length, 30px);
+  height: var(--arrow-thickness, 2px);
+  background-color: var(--arrow-color, currentColor);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: var(--arrow-color, currentColor);
+    border-width: var(--arrow-thickness, 2px) var(--arrow-thickness, 2px) 0 0;
+    transform-origin: center;
+  }
+
+  &--right {
+    &::after {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  &--left {
+    &::after {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+
+  &--up {
+    height: var(--arrow-length, 30px);
+    width: var(--arrow-thickness, 2px);
+
+    &::after {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+
+  &--down {
+    height: var(--arrow-length, 30px);
+    width: var(--arrow-thickness, 2px);
+
+    &::after {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) rotate(135deg);
+    }
+  }
+}

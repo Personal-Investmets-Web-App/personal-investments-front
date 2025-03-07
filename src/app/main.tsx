@@ -43,7 +43,7 @@ if (!rootElement.innerHTML) {
         <Provider>
           <RouterProvider router={router} />
         </Provider>
-        <ReactQueryDevtools initialIsOpen={false} />
+        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
     </StrictMode>
   );

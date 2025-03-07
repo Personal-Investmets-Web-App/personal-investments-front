@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+
 import StockChart from './StockChart';
 
 const meta = {
@@ -22,6 +23,6 @@ export const Default: Story = {
     purchasesData: [
       { date: '01/01/2021', value: 103 },
       { date: '02/01/2021', value: 203 },
-    ]
+    ],
   },
-}
+};
