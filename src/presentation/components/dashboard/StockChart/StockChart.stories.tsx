@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import StockChart from './StockChart';
+import StockChart from './StockChartView';
 
 const meta = {
   title: 'Componentes/StockChart',

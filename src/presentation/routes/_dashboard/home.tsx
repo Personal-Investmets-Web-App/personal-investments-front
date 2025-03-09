@@ -1,10 +1,10 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { createFileRoute } from '@tanstack/react-router';
 
-import SelectedStock from '@/app/components/dashboard/SelectedStock';
-import StockList from '@/app/components/dashboard/StockList';
-import Summary from '@/app/components/dashboard/Summary';
-import SectionBox from '@/app/components/shared/SectionBox';
+import SelectedStock from '@/presentation/components/dashboard/SelectedStock';
+import StockList from '@/presentation/components/dashboard/StockList';
+import Summary from '@/presentation/components/dashboard/Summary';
+import SectionBox from '@/presentation/components/shared/SectionBox';
 
 export const Route = createFileRoute('/_dashboard/home')({
   component: RouteComponent,

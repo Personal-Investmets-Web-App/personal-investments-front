@@ -16,7 +16,7 @@ export interface SelectedStockHeaderProps extends ComponentPropsWithoutRef<typeo
   currency: string;
 }
 
-export const SelectedStockHeader = forwardRef<HTMLDivElement, SelectedStockHeaderProps>(
+const SelectedStockHeader = forwardRef<HTMLDivElement, SelectedStockHeaderProps>(
   ({ stockName, stockValue, currency, ...props }, ref) => (
     <Flex align="end" justify="space-between" ref={ref} {...props}>
       <Text as="h2" textStyle="h2" fontWeight="{fontWeights.medium}">
@@ -34,4 +34,4 @@ export const SelectedStockHeader = forwardRef<HTMLDivElement, SelectedStockHeade
   )
 );
 
-SelectedStockHeader.displayName = 'SelectedStockHeader';
+export default SelectedStockHeader;

@@ -1,4 +1,4 @@
-import { Box, Flex, Text, type FlexProps } from '@chakra-ui/react';
+import { Flex, Text, type FlexProps } from '@chakra-ui/react';
 import { forwardRef, type CSSProperties } from 'react';
 import './custom-arrow.scss';
 
@@ -19,6 +19,14 @@ export interface CustomArrowProps extends FlexProps {
    * Dirección de la flecha (right, left, up, down)
    */
   direction?: 'right' | 'left' | 'up' | 'down';
+  /**
+   * Valor de incremento o decremento
+   */
+  value?: number;
+  /**
+   * Porcentaje de incremento o decremento
+   */
+  percentage?: number;
 }
 
 const CustomArrow = forwardRef<HTMLDivElement, CustomArrowProps>(
@@ -28,6 +36,8 @@ const CustomArrow = forwardRef<HTMLDivElement, CustomArrowProps>(
       thickness = '2px',
       arrowColor = 'currentColor',
       direction = 'right',
+      value = 0,
+      percentage = 0,
       ...rest
     },
     ref
@@ -39,7 +49,7 @@ const CustomArrow = forwardRef<HTMLDivElement, CustomArrowProps>(
 
     return (
       <Flex align="center" justify="center" direction={directionClass} gap={gap}>
-        <Text color="{colors.success}">$7,34</Text>
+        <Text color="{colors.success}">{`$${value.toFixed(2)}`}</Text>
         <Flex
           ref={ref}
           className={className}
@@ -52,7 +62,7 @@ const CustomArrow = forwardRef<HTMLDivElement, CustomArrowProps>(
           }
           {...rest}
         />
-        <Text color="{colors.success}">1.04%</Text>
+        <Text color="{colors.success}">{percentage}%</Text>
       </Flex>
     );
   }

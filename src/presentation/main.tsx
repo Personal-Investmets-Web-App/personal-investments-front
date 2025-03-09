@@ -4,12 +4,12 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Provider } from '@/app/components/ui/provider';
+import { Provider } from '@/presentation/components/ui/provider';
 
 // Import the TanStack generated route tree
 import { routeTree } from './routeTree.gen';
 
-import '@/app/assets/scss/main.scss';
+import '@/presentation/assets/scss/main.scss';
 
 const queryClient = new QueryClient();
 
@@ -43,7 +43,7 @@ if (!rootElement.innerHTML) {
         <Provider>
           <RouterProvider router={router} />
         </Provider>
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </StrictMode>
   );

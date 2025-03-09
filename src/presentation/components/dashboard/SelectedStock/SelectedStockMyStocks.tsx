@@ -18,6 +18,4 @@ const SelectedStockMyStocks = forwardRef<HTMLDivElement, SelectedStockMyStocksPr
   )
 );
 
-SelectedStockMyStocks.displayName = 'SelectedStockMyStocks';
-
 export default SelectedStockMyStocks;
